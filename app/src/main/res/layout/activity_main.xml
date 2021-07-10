@@ -48,7 +48,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="9"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
 
         <Button
@@ -101,7 +101,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="*"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
     </LinearLayout>
     <!-- Row3 -->
@@ -145,7 +145,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="-"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
     </LinearLayout>
     <!-- Row4 -->
@@ -189,7 +189,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="+"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
     </LinearLayout>
     <LinearLayout
