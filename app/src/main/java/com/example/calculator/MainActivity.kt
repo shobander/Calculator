@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         lastNumeric = true
 
         if(tvInput.text.contains("1"))
-            tvInput.text = "Haha"
+            tvInput.text = "1"
     }
 
     fun onClear(view: View){
@@ -59,7 +59,10 @@ class MainActivity : AppCompatActivity() {
                     if (!prefix.isEmpty()){
                         one = prefix + one
                     }
-                    tvInput.text = (one.toDouble() - two.toDouble()).toString()
+                    tvInput.text = removeZeroAfterDot((one.toDouble() - two.toDouble()).toString())
+
+
+
                 }else if(tvValue.contains("*")){
                     val splitValue = tvValue.split("*")
                     var one = splitValue[0] //99
@@ -68,7 +71,8 @@ class MainActivity : AppCompatActivity() {
                     if (!prefix.isEmpty()){
                         one = prefix + one
                     }
-                    tvInput.text = (one.toDouble() * two.toDouble()).toString()
+                    tvInput.text = removeZeroAfterDot((one.toDouble() * two.toDouble()).toString())
+
                 }else if (tvValue.contains("+")){
                     val splitValue = tvValue.split("+")
                     var one = splitValue[0] //99
@@ -78,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
                     tvInput.text = (one.toDouble() + two.toDouble()).toString()
+
                 }else if (tvValue.contains("/")){
                     val splitValue = tvValue.split("/")
                     var one = splitValue[0] //99
@@ -86,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                     if (!prefix.isEmpty()){
                         one = prefix + one
                     }
-                    tvInput.text = (one.toDouble() / two.toDouble()).toString()
+                    tvInput.text = removeZeroAfterDot((one.toDouble() / two.toDouble()).toString())
                 }
 
 
@@ -100,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         var value = result
         if (result.contains(".0"))
             value = result.substring(0, result.length - 2)
-
+        return value
     }
 
     fun onOperator(view: View){
