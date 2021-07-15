@@ -50,23 +50,43 @@ class MainActivity : AppCompatActivity() {
                     tvValue = tvValue.substring(1)
                     // -215
                 }
-            }
 
-            try {
                 if (tvValue.contains("-")){
                     val splitValue = tvValue.split("-")
-
                     var one = splitValue[0] //99
                     var two = splitValue[1] //1
                     // 99 -1
-
                     if (!prefix.isEmpty()){
                         one = prefix + one
                     }
-
-
-
                     tvInput.text = (one.toDouble() - two.toDouble()).toString()
+                }else if(tvValue.contains("*")){
+                    val splitValue = tvValue.split("*")
+                    var one = splitValue[0] //99
+                    var two = splitValue[1] //1
+                    // 99 -1
+                    if (!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+                    tvInput.text = (one.toDouble() * two.toDouble()).toString()
+                }else if (tvValue.contains("+")){
+                    val splitValue = tvValue.split("+")
+                    var one = splitValue[0] //99
+                    var two = splitValue[1] //1
+                    // 99 -1
+                    if (!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+                    tvInput.text = (one.toDouble() + two.toDouble()).toString()
+                }else if (tvValue.contains("/")){
+                    val splitValue = tvValue.split("/")
+                    var one = splitValue[0] //99
+                    var two = splitValue[1] //1
+                    // 99 -1
+                    if (!prefix.isEmpty()){
+                        one = prefix + one
+                    }
+                    tvInput.text = (one.toDouble() / two.toDouble()).toString()
                 }
 
 
@@ -74,6 +94,13 @@ class MainActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+    }
+
+    private fun removeZeroAfterDot(result: String) : String{
+        var value = result
+        if (result.contains(".0"))
+            value = result.substring(0, result.length - 2)
+
     }
 
     fun onOperator(view: View){
